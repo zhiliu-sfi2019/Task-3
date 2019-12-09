@@ -1,0 +1,686 @@
+[
+    {
+        "Field_Name": "agency_id",
+        "File_Name": "agency.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "agency_name",
+        "File_Name": "agency.txt",
+        "Required": "*Required*",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "agency_url",
+        "File_Name": "agency.txt",
+        "Required": "*Required*",
+        "Type": "URL"
+    },
+    {
+        "Field_Name": "agency_timezone",
+        "File_Name": "agency.txt",
+        "Required": "*Required*",
+        "Type": "Timezone"
+    },
+    {
+        "Field_Name": "agency_lang",
+        "File_Name": "agency.txt",
+        "Required": "Optional",
+        "Type": "Language code"
+    },
+    {
+        "Field_Name": "agency_phone",
+        "File_Name": "agency.txt",
+        "Required": "Optional",
+        "Type": "Phone number"
+    },
+    {
+        "Field_Name": "agency_fare_url",
+        "File_Name": "agency.txt",
+        "Required": "Optional",
+        "Type": "URL"
+    },
+    {
+        "Field_Name": "agency_email",
+        "File_Name": "agency.txt",
+        "Required": "Optional",
+        "Type": "Email"
+    },
+    {
+        "Field_Name": "stop_id",
+        "File_Name": "stops.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "stop_code",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "stop_name",
+        "File_Name": "stops.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "stop_desc",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "stop_lat",
+        "File_Name": "stops.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "Latitude"
+    },
+    {
+        "Field_Name": "stop_lon",
+        "File_Name": "stops.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "Longitude"
+    },
+    {
+        "Field_Name": "zone_id",
+        "File_Name": "stops.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "stop_url",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "URL"
+    },
+    {
+        "Field_Name": "location_type",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "parent_station",
+        "File_Name": "stops.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "stop_timezone",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Timezone"
+    },
+    {
+        "Field_Name": "wheelchair_boarding",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "level_id",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "ID referencing levels.level_id"
+    },
+    {
+        "Field_Name": "platform_code",
+        "File_Name": "stops.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "route_id",
+        "File_Name": "routes.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "agency_id",
+        "File_Name": "routes.txt",
+        "Required": "*Conditionally required*",
+        "Type": "ID referencing agency.agency_id"
+    },
+    {
+        "Field_Name": "route_short_name",
+        "File_Name": "routes.txt",
+        "Required": "*Conditionally required*",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "route_long_name",
+        "File_Name": "routes.txt",
+        "Required": "*Conditionally required*",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "route_desc",
+        "File_Name": "routes.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "route_type",
+        "File_Name": "routes.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "route_url",
+        "File_Name": "routes.txt",
+        "Required": "Optional",
+        "Type": "URL"
+    },
+    {
+        "Field_Name": "route_color",
+        "File_Name": "routes.txt",
+        "Required": "Optional",
+        "Type": "Color"
+    },
+    {
+        "Field_Name": "route_text_color",
+        "File_Name": "routes.txt",
+        "Required": "Optional",
+        "Type": "Color"
+    },
+    {
+        "Field_Name": "route_sort_order",
+        "File_Name": "routes.txt",
+        "Required": "Optional",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "route_id",
+        "File_Name": "trips.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing routes.route_id"
+    },
+    {
+        "Field_Name": "service_id",
+        "File_Name": "trips.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing calendar.service_id or calendar_dates.service_id"
+    },
+    {
+        "Field_Name": "trip_id",
+        "File_Name": "trips.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "trip_headsign",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "trip_short_name",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "direction_id",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "block_id",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "shape_id",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "ID referencing shapes.shape_id"
+    },
+    {
+        "Field_Name": "wheelchair_accessible",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "bikes_allowed",
+        "File_Name": "trips.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "trip_id",
+        "File_Name": "stop_times.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing trips.trip_id"
+    },
+    {
+        "Field_Name": "arrival_time",
+        "File_Name": "stop_times.txt",
+        "Required": "*Conditionally required*",
+        "Type": "Time"
+    },
+    {
+        "Field_Name": "departure_time",
+        "File_Name": "stop_times.txt",
+        "Required": "*Conditionally required*",
+        "Type": "Time"
+    },
+    {
+        "Field_Name": "stop_id",
+        "File_Name": "stop_times.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "stop_sequence",
+        "File_Name": "stop_times.txt",
+        "Required": "*Required*",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "stop_headsign",
+        "File_Name": "stop_times.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "pickup_type",
+        "File_Name": "stop_times.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "drop_off_type",
+        "File_Name": "stop_times.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "shape_dist_traveled",
+        "File_Name": "stop_times.txt",
+        "Required": "Optional",
+        "Type": "Non-negative float"
+    },
+    {
+        "Field_Name": "timepoint",
+        "File_Name": "stop_times.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "service_id",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "monday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "tuesday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "wednesday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "thursday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "friday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "saturday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "sunday",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "start_date",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Date"
+    },
+    {
+        "Field_Name": "end_date",
+        "File_Name": "calendar.txt",
+        "Required": "*Required*",
+        "Type": "Date"
+    },
+    {
+        "Field_Name": "service_id",
+        "File_Name": "calendar_dates.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing calendar.service_id or ID"
+    },
+    {
+        "Field_Name": "date",
+        "File_Name": "calendar_dates.txt",
+        "Required": "*Required*",
+        "Type": "Date"
+    },
+    {
+        "Field_Name": "exception_type",
+        "File_Name": "calendar_dates.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "fare_id",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "price",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Required*",
+        "Type": "Non-negative float"
+    },
+    {
+        "Field_Name": "currency_type",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Required*",
+        "Type": "Currency code"
+    },
+    {
+        "Field_Name": "payment_method",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "transfers",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "agency_id",
+        "File_Name": "fare_attributes.txt",
+        "Required": "*Conditionally Required*",
+        "Type": "ID referencing agency.agency_id"
+    },
+    {
+        "Field_Name": "transfer_duration",
+        "File_Name": "fare_attributes.txt",
+        "Required": "Optional",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "fare_id",
+        "File_Name": "fare_rules.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing fare_attributes.fare_id"
+    },
+    {
+        "Field_Name": "route_id",
+        "File_Name": "fare_rules.txt",
+        "Required": "Optional",
+        "Type": "ID referencing routes.route_id"
+    },
+    {
+        "Field_Name": "origin_id",
+        "File_Name": "fare_rules.txt",
+        "Required": "Optional",
+        "Type": "ID referencing stops.zone_id"
+    },
+    {
+        "Field_Name": "destination_id",
+        "File_Name": "fare_rules.txt",
+        "Required": "Optional",
+        "Type": "ID referencing stops.zone_id"
+    },
+    {
+        "Field_Name": "contains_id",
+        "File_Name": "fare_rules.txt",
+        "Required": "Optional",
+        "Type": "ID referencing stops.zone_id"
+    },
+    {
+        "Field_Name": "shape_id",
+        "File_Name": "shapes.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "shape_pt_lat",
+        "File_Name": "shapes.txt",
+        "Required": "*Required*",
+        "Type": "Latitude"
+    },
+    {
+        "Field_Name": "shape_pt_lon",
+        "File_Name": "shapes.txt",
+        "Required": "*Required*",
+        "Type": "Longitude"
+    },
+    {
+        "Field_Name": "shape_pt_sequence",
+        "File_Name": "shapes.txt",
+        "Required": "*Required*",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "shape_dist_traveled",
+        "File_Name": "shapes.txt",
+        "Required": "Optional",
+        "Type": "Non-negative float"
+    },
+    {
+        "Field_Name": "trip_id",
+        "File_Name": "frequencies.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing trips.trip_id"
+    },
+    {
+        "Field_Name": "start_time",
+        "File_Name": "frequencies.txt",
+        "Required": "*Required*",
+        "Type": "Time"
+    },
+    {
+        "Field_Name": "end_time",
+        "File_Name": "frequencies.txt",
+        "Required": "*Required*",
+        "Type": "Time"
+    },
+    {
+        "Field_Name": "headway_secs",
+        "File_Name": "frequencies.txt",
+        "Required": "*Required*",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "exact_times",
+        "File_Name": "frequencies.txt",
+        "Required": "Optional",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "from_stop_id",
+        "File_Name": "transfers.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "to_stop_id",
+        "File_Name": "transfers.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "transfer_type",
+        "File_Name": "transfers.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "min_transfer_time",
+        "File_Name": "transfers.txt",
+        "Required": "Optional",
+        "Type": "Non-negative integer"
+    },
+    {
+        "Field_Name": "pathway_id",
+        "File_Name": "pathways.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "from_stop_id",
+        "File_Name": "pathways.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "to_stop_id",
+        "File_Name": "pathways.txt",
+        "Required": "*Required*",
+        "Type": "ID referencing stops.stop_id"
+    },
+    {
+        "Field_Name": "pathway_mode",
+        "File_Name": "pathways.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "is_bidirectional",
+        "File_Name": "pathways.txt",
+        "Required": "*Required*",
+        "Type": "Enum"
+    },
+    {
+        "Field_Name": "length",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Non-negative Float"
+    },
+    {
+        "Field_Name": "traversal_time",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Positive Integer"
+    },
+    {
+        "Field_Name": "stair_count",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Non-null Integer"
+    },
+    {
+        "Field_Name": "max_slope",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Float"
+    },
+    {
+        "Field_Name": "min_width",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Positive Float"
+    },
+    {
+        "Field_Name": "signposted_as",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "reversed_signposted_as",
+        "File_Name": "pathways.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "level_id",
+        "File_Name": "levels.txt",
+        "Required": "*Required*",
+        "Type": "ID"
+    },
+    {
+        "Field_Name": "level_index",
+        "File_Name": "levels.txt",
+        "Required": "*Required*",
+        "Type": "Float"
+    },
+    {
+        "Field_Name": "level_name",
+        "File_Name": "levels.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "feed_publisher_name",
+        "File_Name": "feed_info.txt",
+        "Required": "*Required*",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "feed_publisher_url",
+        "File_Name": "feed_info.txt",
+        "Required": "*Required*",
+        "Type": "URL"
+    },
+    {
+        "Field_Name": "feed_lang",
+        "File_Name": "feed_info.txt",
+        "Required": "*Required*",
+        "Type": "Language code"
+    },
+    {
+        "Field_Name": "feed_start_date",
+        "File_Name": "feed_info.txt",
+        "Required": "Optional",
+        "Type": "Date"
+    },
+    {
+        "Field_Name": "feed_end_date",
+        "File_Name": "feed_info.txt",
+        "Required": "Optional",
+        "Type": "Date"
+    },
+    {
+        "Field_Name": "feed_version",
+        "File_Name": "feed_info.txt",
+        "Required": "Optional",
+        "Type": "Text"
+    },
+    {
+        "Field_Name": "feed_contact_email",
+        "File_Name": "feed_info.txt",
+        "Required": "Optional",
+        "Type": "Email"
+    },
+    {
+        "Field_Name": "feed_contact_url",
+        "File_Name": "feed_info.txt",
+        "Required": "Optional",
+        "Type": "URL"
+    }
+]
