@@ -1,0 +1,195 @@
+CREATE TABLE IF NOT EXISTS "gtfs_feed_info" (
+	"feed_publisher_name"	text,
+	"feed_publisher_url"	text,
+	"feed_timezone"	text,
+	"feed_lang"	text,
+	"feed_version"	text,
+	"feed_start_date"	text,
+	"feed_end_date"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_transfers" (
+	"from_stop_id"	text,
+	"to_stop_id"	text,
+	"transfer_type"	int,
+	"min_transfer_time"	int,
+	"from_route_id"	text,
+	"to_route_id"	text,
+	"service_id"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_transfer_types" (
+	"transfer_type"	int,
+	"description"	text,
+	PRIMARY KEY("transfer_type")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_frequencies" (
+	"trip_id"	text,
+	"start_time"	text,
+	"end_time"	text,
+	"headway_secs"	int,
+	"exact_times"	int,
+	"start_time_seconds"	int,
+	"end_time_seconds"	int
+);
+CREATE TABLE IF NOT EXISTS "gtfs_stop_times" (
+	"trip_id"	text,
+	"arrival_time"	text,
+	"departure_time"	text,
+	"stop_id"	text,
+	"stop_sequence"	int,
+	"stop_headsign"	text,
+	"pickup_type"	int,
+	"drop_off_type"	int,
+	"shape_dist_traveled"	double precision,
+	"timepoint"	int,
+	"arrival_time_seconds"	int,
+	"departure_time_seconds"	int
+);
+CREATE TABLE IF NOT EXISTS "gtfs_trips" (
+	"route_id"	text,
+	"service_id"	text,
+	"trip_id"	text,
+	"trip_headsign"	text,
+	"direction_id"	int,
+	"block_id"	text,
+	"shape_id"	text,
+	"trip_short_name"	text,
+	"trip_type"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_shapes" (
+	"shape_id"	text,
+	"shape_pt_lat"	double precision,
+	"shape_pt_lon"	double precision,
+	"shape_pt_sequence"	int,
+	"shape_dist_traveled"	double precision
+);
+CREATE TABLE IF NOT EXISTS "gtfs_fare_rules" (
+	"fare_id"	text,
+	"route_id"	text,
+	"origin_id"	text,
+	"destination_id"	text,
+	"contains_id"	text,
+	"service_id"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_fare_attributes" (
+	"fare_id"	text,
+	"price"	double precision,
+	"currency_type"	text,
+	"payment_method"	int,
+	"transfers"	int,
+	"transfer_duration"	int,
+	"agency_id"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_payment_methods" (
+	"payment_method"	int,
+	"description"	text,
+	PRIMARY KEY("payment_method")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_calendar_dates" (
+	"service_id"	text,
+	"date"	date,
+	"exception_type"	int
+);
+CREATE TABLE IF NOT EXISTS "gtfs_calendar" (
+	"service_id"	text,
+	"monday"	int,
+	"tuesday"	int,
+	"wednesday"	int,
+	"thursday"	int,
+	"friday"	int,
+	"saturday"	int,
+	"sunday"	int,
+	"start_date"	date,
+	"end_date"	date
+);
+CREATE TABLE IF NOT EXISTS "gtfs_pickup_dropoff_types" (
+	"type_id"	int,
+	"description"	text,
+	PRIMARY KEY("type_id")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_directions" (
+	"direction_id"	int,
+	"description"	text,
+	PRIMARY KEY("direction_id")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_routes" (
+	"route_id"	text,
+	"agency_id"	text,
+	"route_short_name"	text DEFAULT '',
+	"route_long_name"	text DEFAULT '',
+	"route_desc"	text,
+	"route_type"	int,
+	"route_url"	text,
+	"route_color"	text,
+	"route_text_color"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_route_types" (
+	"route_type"	int,
+	"description"	text,
+	PRIMARY KEY("route_type")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_stops" (
+	"stop_id"	text,
+	"stop_name"	text,
+	"stop_desc"	text,
+	"stop_lat"	double precision,
+	"stop_lon"	double precision,
+	"zone_id"	text,
+	"stop_url"	text,
+	"stop_code"	text,
+	"stop_street"	text,
+	"stop_city"	text,
+	"stop_region"	text,
+	"stop_postcode"	text,
+	"stop_country"	text,
+	"location_type"	int,
+	"parent_station"	text,
+	"stop_timezone"	text,
+	"wheelchair_boarding"	int,
+	"direction"	text,
+	"position"	text
+);
+CREATE TABLE IF NOT EXISTS "gtfs_wheelchair_boardings" (
+	"wheelchair_boarding"	int,
+	"description"	text,
+	PRIMARY KEY("wheelchair_boarding")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_location_types" (
+	"location_type"	int,
+	"description"	text,
+	PRIMARY KEY("location_type")
+);
+CREATE TABLE IF NOT EXISTS "gtfs_agency" (
+	"agency_id"	text,
+	"agency_name"	text,
+	"agency_url"	text,
+	"agency_timezone"	text,
+	"agency_lang"	text,
+	"agency_phone"	text,
+	"agency_fare_url"	text
+);
+INSERT INTO "gtfs_transfer_types" ("transfer_type","description") VALUES (0,'Preferred transfer point'),
+ (1,'Designated transfer point'),
+ (2,'Transfer possible with min_transfer_time window'),
+ (3,'Transfers forbidden');
+INSERT INTO "gtfs_payment_methods" ("payment_method","description") VALUES (0,'On Board'),
+ (1,'Prepay');
+INSERT INTO "gtfs_pickup_dropoff_types" ("type_id","description") VALUES (0,'Regularly Scheduled'),
+ (1,'Not available'),
+ (2,'Phone arrangement only'),
+ (3,'Driver arrangement only');
+INSERT INTO "gtfs_directions" ("direction_id","description") VALUES (0,'This way'),
+ (1,'That way');
+INSERT INTO "gtfs_route_types" ("route_type","description") VALUES (0,'Street Level Rail'),
+ (1,'Underground Rail'),
+ (2,'Intercity Rail'),
+ (3,'Bus'),
+ (4,'Ferry'),
+ (5,'Cable Car'),
+ (6,'Suspended Car'),
+ (7,'Steep Incline Mode');
+INSERT INTO "gtfs_wheelchair_boardings" ("wheelchair_boarding","description") VALUES (0,'No accessibility information available for the stop'),
+ (1,'At least some vehicles at this stop can be boarded by a rider in a wheelchair'),
+ (2,'Wheelchair boarding is not possible at this stop');
+INSERT INTO "gtfs_location_types" ("location_type","description") VALUES (0,'stop'),
+ (1,'station'),
+ (2,'station entrance');
